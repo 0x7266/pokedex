@@ -1,51 +1,51 @@
-const Pokemon = require('../models/pokemon.model');
+const Pokemon = require("../models/pokemon.model");
 
 module.exports = {
   getPokemons: async (req, res) => {
     try {
       const types = [
-        'bug',
-        'dragon',
-        'electric',
-        'fairy',
-        'fighting',
-        'fire',
-        'ghost',
-        'grass',
-        'ground',
-        'ice',
-        'normal',
-        'poison',
-        'psychic',
-        'rock',
-        'water',
-        'fairy',
-        'fighting',
-        'flying',
-        'grass',
-        'ground',
-        'ice',
-        'poison',
-        'psychic',
-        'rock',
-        'steel',
-        'water',
+        "bug",
+        "dragon",
+        "electric",
+        "fairy",
+        "fighting",
+        "fire",
+        "ghost",
+        "grass",
+        "ground",
+        "ice",
+        "normal",
+        "poison",
+        "psychic",
+        "rock",
+        "water",
+        "fairy",
+        "fighting",
+        "flying",
+        "grass",
+        "ground",
+        "ice",
+        "poison",
+        "psychic",
+        "rock",
+        "steel",
+        "water",
       ];
       const count = await Pokemon.countDocuments();
       let limit = parseInt(req.query.limit) || 20;
       let page = parseInt(req.query.page) - 1 || 0;
       const weight = parseInt(req.query.weight) || 0;
-      const search = req.query.search || '';
-      let type = req.query.type || 'all';
-      type === 'all' ? (type = [...types]) : (type = req.query.type.split(','));
+      const search = req.query.search || "";
+      let type = req.query.type || "all";
+      type === "all" ? (type = [...types]) : (type = req.query.type.split(","));
       if (type.length < types.length) {
         limit = count;
         page = 0;
       }
       const pokemons = await Pokemon.find({
-        name: { $regex: search, $options: 'i' },
+        name: { $regex: search, $options: "i" },
       })
-        .where('types.type_name')
+        .where("types.type.name")
         .in([...type])
         .skip(page * limit)
         .limit(limit);

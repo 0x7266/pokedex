@@ -1,14 +1,14 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const pokemonSchema = new Schema({
   id: Number,
   name: String,
-  order: Number,
-  base_experience: Number,
-  weight: Number,
-  height: Number,
-  image: String,
   types: [Object],
+  height: Number,
+  weight: Number,
+  abilities: [],
+  gif: String,
+  image: String,
 });
 
-module.exports = model('Pokemon', pokemonSchema);
+module.exports = model("Pokemon", pokemonSchema);
