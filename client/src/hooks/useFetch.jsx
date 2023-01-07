@@ -1,7 +1,7 @@
 export async function useFetch(page, limit, type) {
   const response = await fetch(
-    `https://api-pokedex.onrender.com/api/pokemon?page=${page}&limit=${limit}&type=${type}`
-    // `http://localhost:3333/api/pokemon/?page=${page}&limit=${limit}&type=${type}`
+    // `https://api-pokedex.onrender.com/api/pokemon?page=${page}&limit=${limit}&type=${type}`
+    `http://localhost:3333/api/pokemon/?page=${page}&limit=${limit}&type=${type}`
   );
   return await response.json();
 }
@@ -15,8 +15,8 @@ export async function useFetch(page, limit, type) {
 export async function searchPokemon(id) {
   try {
     const response = await fetch(
-      `https://api-pokedex.onrender.com/api/pokemon/${id}`
-      // `http://localhost:3333/api/pokemon/${id}`
+      // `https://api-pokedex.onrender.com/api/pokemon/${id}`
+      `http://localhost:3333/api/pokemon/${id}`
     );
     const data = await response.json();
     console.log(data);

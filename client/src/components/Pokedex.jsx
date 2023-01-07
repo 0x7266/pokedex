@@ -23,7 +23,7 @@ export default function Pokedex({ setType }) {
     try {
       setLoading(true);
       if (query) {
-        const response = await useFetch(1, 151, "all");
+        const response = await useFetch(1, 251, "all");
         setPokemons(response.pokemons);
         return;
       }

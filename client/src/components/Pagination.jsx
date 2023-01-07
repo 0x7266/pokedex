@@ -24,7 +24,7 @@ export default function Pagination() {
     setPage(page - 1);
   }
   function onRightClick() {
-    if (page >= 8) {
+    if (page >= totalPages) {
       return;
     }
     setPage(page + 1);

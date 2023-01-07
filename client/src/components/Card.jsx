@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { useFetch } from '../hooks/useFetch.jsx';
-import usePokemonsContext from '../hooks/usePokemonsContext';
-import Tilt from 'react-parallax-tilt';
+import { Link } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch.jsx";
+import usePokemonsContext from "../hooks/usePokemonsContext";
+import Tilt from "react-parallax-tilt";
 
 export default function Card({ item, setType }) {
   const [
@@ -25,11 +25,7 @@ export default function Card({ item, setType }) {
   }
 
   return (
-    <Tilt
-      glareEnable={true}
-      glarePosition={'all'}
-      glareMaxOpacity={'0.1'}
-    >
+    <Tilt glareEnable={true} glarePosition={"all"} glareMaxOpacity={"0.1"}>
       <Link to={`pokemon/${item.id}`}>
         <div className="card rounded-lg h-fit w-72">
           <div className="card-content text-gray-100 h-[300] bg-yellow-300 bg-opacity-30 border-4 border-red-400 rounded-lg flex flex-col items-center shadow">
@@ -58,46 +54,46 @@ export default function Card({ item, setType }) {
                     key={index}
                     onClick={(e) => handleStatusFilter(e, types.type_name)}
                     className={`py-1 rounded-xl text-sm w-20 text-center cursor-pointer ${
-                      types.type_name === 'fire'
-                        ? 'bg-red-600'
-                        : '' || types.type_name === 'grass'
-                        ? 'bg-green-600'
-                        : '' || types.type_name === 'water'
-                        ? 'bg-blue-600'
-                        : '' || types.type_name === 'poison'
-                        ? 'bg-violet-600'
-                        : '' || types.type_name === 'bug'
-                        ? 'bg-white text-green-600'
-                        : '' || types.type_name === 'flying'
-                        ? 'bg-slate-400'
-                        : '' || types.type_name === 'normal'
-                        ? 'bg-gray-700'
-                        : '' || types.type_name === 'ground'
-                        ? 'bg-amber-900'
-                        : '' || types.type_name === 'electric'
-                        ? 'bg-orange-600'
-                        : '' || types.type_name === 'fighting'
-                        ? 'bg-orange-800'
-                        : '' || types.type_name === 'psychic'
-                        ? 'bg-violet-800'
-                        : '' || types.type_name === 'ghost'
-                        ? 'bg-white text-slate-600'
-                        : '' || types.type_name === 'fairy'
-                        ? 'bg-purple-300'
-                        : '' || types.type_name === 'rock'
-                        ? 'bg-stone-500 text-amber-900'
-                        : '' || types.type_name === 'ice'
-                        ? 'bg-slate-300 text-slate-800'
-                        : '' || types.type_name === 'dragon'
-                        ? 'bg-rose-600'
-                        : '' || types.type_name === 'dark'
-                        ? 'bg-slate-800 text-slate-200'
-                        : '' || types.type_name === 'steel'
-                        ? 'bg-neutral-400 text-slate-700'
-                        : ''
+                      types.type_name === "fire"
+                        ? "bg-red-600"
+                        : "" || types.type_name === "grass"
+                        ? "bg-green-600"
+                        : "" || types.type_name === "water"
+                        ? "bg-blue-600"
+                        : "" || types.type_name === "poison"
+                        ? "bg-violet-600"
+                        : "" || types.type_name === "bug"
+                        ? "bg-white text-green-600"
+                        : "" || types.type_name === "flying"
+                        ? "bg-slate-400"
+                        : "" || types.type_name === "normal"
+                        ? "bg-gray-700"
+                        : "" || types.type_name === "ground"
+                        ? "bg-amber-900"
+                        : "" || types.type_name === "electric"
+                        ? "bg-orange-600"
+                        : "" || types.type_name === "fighting"
+                        ? "bg-orange-800"
+                        : "" || types.type_name === "psychic"
+                        ? "bg-violet-800"
+                        : "" || types.type_name === "ghost"
+                        ? "bg-white text-slate-600"
+                        : "" || types.type_name === "fairy"
+                        ? "bg-purple-300"
+                        : "" || types.type_name === "rock"
+                        ? "bg-stone-500 text-amber-900"
+                        : "" || types.type_name === "ice"
+                        ? "bg-slate-300 text-slate-800"
+                        : "" || types.type_name === "dragon"
+                        ? "bg-rose-600"
+                        : "" || types.type_name === "dark"
+                        ? "bg-slate-800 text-slate-200"
+                        : "" || types.type_name === "steel"
+                        ? "bg-neutral-400 text-slate-700"
+                        : ""
                     }`}
                   >
-                    {types.type_name.toUpperCase()}
+                    {types.type.name.toUpperCase()}
                   </div>
                 ))}
               </div>

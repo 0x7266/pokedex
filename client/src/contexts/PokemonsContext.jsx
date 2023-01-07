@@ -1,29 +1,29 @@
-import { createContext, useEffect, useState } from 'react';
-import { useFetch } from '../hooks/useFetch.jsx';
+import { createContext, useEffect, useState } from "react";
+import { useFetch } from "../hooks/useFetch.jsx";
 
 export const PokemonsContext = createContext();
 
 export function PokemonsContextProvider({ children }) {
   const [pokemons, setPokemons] = useState([]);
-  const [type, setType] = useState('');
+  const [type, setType] = useState("");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [limit, setLimit] = useState(20);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
 
   async function fetchPokemons() {
     try {
       setLoading(true);
       let data;
-      if (query !== '') {
-        data = await useFetch(1, 20, 'all');
+      if (query !== "") {
+        data = await useFetch(1, 20, "all");
       }
-      if (query === '') {
+      if (query === "") {
         data = await useFetch(page, limit);
       }
       setPokemons(data.pokemons);
-      setTotalPages(8); //(Math.ceil(data.count / limit));
+      setTotalPages(Math.ceil(data.count / limit));
     } catch (error) {
       console.log(error);
     } finally {
