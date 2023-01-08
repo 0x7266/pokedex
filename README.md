@@ -1,4 +1,4 @@
 # POKEDEX
 
 backend: mongodb (mongoose), express, node
-frontend: react
+frontend: react, tailwind, framer motion
