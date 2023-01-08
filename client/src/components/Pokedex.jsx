@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFetch } from "../hooks/useFetch.jsx";
-import { motion } from "framer-motion";
+
 import usePokemonsContext from "../hooks/usePokemonsContext.jsx";
 import Card from "./Card.jsx";
 import SearchBar from "./Searchbar.jsx";
@@ -42,11 +42,6 @@ export default function Pokedex({ setType }) {
     console.log("render");
   }, [query, limit]);
 
-  // const variants = {
-  //   hidden: { opacity: 0 },
-  //   visible: { opacity: 1 },
-  // };
-
   return (
     <>
       {loading ? (
@@ -58,13 +53,8 @@ export default function Pokedex({ setType }) {
           className="w-40"
         />
       ) : (
-        <motion.div
-          // variants={variants}
+        <div
           key={page}
-          initial="hidden"
-          animate={pokemons.length > 0 && "visible"}
-          // viewport={{ once: true }}
-          transition={{ staggerChildren: 1 }}
           className="pokedex grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 font-bold gap-5 place-items-center w-full sm:w-fit"
         >
           {pokemons
@@ -74,7 +64,7 @@ export default function Pokedex({ setType }) {
             .map((item, index) => (
               <Card setType={setType} item={item} key={index} index={index} />
             ))}
-        </motion.div>
+        </div>
       )}
     </>
   );

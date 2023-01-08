@@ -29,10 +29,10 @@ export default function Pagination() {
     }
     setPage(page + 1);
   }
-  async function getPokemons() {
+  async function getPokemons(signal) {
     // setLoading(true);
     try {
-      const response = await useFetch(page, limit, "all");
+      const response = await useFetch(page, limit, "all", signal);
       setPokemons(response.pokemons);
     } catch (error) {
       console.error(error);
@@ -41,10 +41,16 @@ export default function Pagination() {
     }
   }
   useEffect(() => {
-    getPokemons();
+    const controller = new AbortController();
+    const { signal } = controller;
+    getPokemons(signal);
+
+    return () => {
+      controller.abort();
+    };
   }, [page]);
   return (
-    <>
+    <div className="w-full flex justify-center">
       {pokemons && !query ? (
         <div className="flex gap-3 text-slate-200 border-neutral-100 p-1 rounded text-xl w-60 justify-center items-center">
           <button
@@ -64,6 +70,6 @@ export default function Pagination() {
           </button>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }
