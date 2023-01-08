@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       {loading ? null : !pokemons ? null : (
-        <div className="flex flex-col items-center gap-3 w-full overflow-hidden">
+        <div className="flex flex-col items-center gap-6 w-full overflow-hidden">
           <SearchBar setType={setType} />
           {!type ? <Pagination /> : null}
           <Pokedex setType={setType} />
