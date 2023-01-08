@@ -21,13 +21,13 @@ export default function Home() {
 
   return (
     <>
-      {!pokemons ? null : (
-        <>
+      {loading ? null : !pokemons ? null : (
+        <div className="flex flex-col items-center gap-3 w-full overflow-hidden">
           <SearchBar setType={setType} />
           {!type ? <Pagination /> : null}
           <Pokedex setType={setType} />
           {!type ? <Pagination /> : null}
-        </>
+        </div>
       )}
     </>
   );

@@ -13,8 +13,8 @@ export function PokemonsContextProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   async function fetchPokemons() {
+    setLoading(true);
     try {
-      setLoading(true);
       let data;
       if (query !== "") {
         data = await useFetch(1, 20, "all");

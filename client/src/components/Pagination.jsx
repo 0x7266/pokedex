@@ -30,14 +30,14 @@ export default function Pagination() {
     setPage(page + 1);
   }
   async function getPokemons() {
-    setLoading(true);
+    // setLoading(true);
     try {
       const response = await useFetch(page, limit, "all");
       setPokemons(response.pokemons);
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   }
   useEffect(() => {
